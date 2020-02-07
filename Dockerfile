@@ -1,10 +1,6 @@
 FROM library/ubuntu:16.04
 MAINTAINER Dmitry Kiselev <dmitry@endpoint.com>
 
-ENV ftp_proxy="http://07912470743:da03082001MB%21@proxy-1dn.mb:6060/"
-ENV http_proxy="http://07912470743:da03082001MB%21@proxy-1dn.mb:6060/"
-ENV https_proxy="http://07912470743:da03082001MB%21@proxy-1dn.mb:6060/"
-
 ENV LANG C.UTF-8
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 
