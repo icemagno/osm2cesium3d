@@ -26,8 +26,8 @@ docker run --name osmtiles --hostname=osmtiles \
 # osmconvert /opt/data/sudeste-latest.osm.pbf -o=/opt/data/map2.osm
 # java -jar /opt/gazetteer/gazetteer.jar --data-dir /opt/data split /opt/data/map2.osm
 
-
-# java -jar /opt/gazetteer/gazetteer.jar --data-dir /opt/data tile-buildings --out-dir /opt/data/osm-tiles --level 12
+# usage: gazetter tile-buildings [-h] [--drop [DROP [DROP ...]]] [--disk-index] [--out-dir OUT_DIR] [--level LEVEL]
+# java -jar /opt/gazetteer/gazetteer.jar tile-buildings --data-dir /opt/data --out-dir /opt/data/osm-tiles --level 12
 
 
 # python /opt/scripts/convert_parallel.py /opt/data/osm-tiles
