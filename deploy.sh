@@ -1,21 +1,19 @@
 #! /bin/sh
 
 
-docker ps -a | awk '{ print $1,$2 }' | grep sisgeodef/osmtiles | awk '{print $1 }' | xargs -I {} docker rm -f {}
-docker rmi sisgeodef/osmtiles
+docker ps -a | awk '{ print $1,$2 }' | grep magnoabreu/osmtiles:1.0 | awk '{print $1 }' | xargs -I {} docker rm -f {}
+docker rmi magnoabreu/osmtiles:1.0
 
-docker build --tag=sisgeodef/osmtiles --rm=true .
+docker build --tag=magnoabreu/osmtiles:1.0 --rm=true .
 
 mkdir /srv/osmtiles/
-
-# cp map.osm /srv/osmtiles/
-# cp sudeste-latest.osm.pbf /srv/osmtiles/
+cp map.osm /srv/osmtiles/
 
 docker run --name osmtiles --hostname=osmtiles \
 -v /etc/localtime:/etc/localtime:ro \
--v /srv/3dtiles/:/opt/data/ \
+-v /srv/osmtiles/:/opt/data/ \
 -v /srv/srtm/:/srtm/ \
--it sisgeodef/osmtiles /bin/bash
+-it magnoabreu/osmtiles:1.0 /bin/bash
 
 # https://github.com/kiselev-dv/osm-cesium-3d-tiles
 
