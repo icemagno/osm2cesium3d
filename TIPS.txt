@@ -109,3 +109,21 @@ var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({
      dynamicScreenSpaceErrorHeightFalloff : 0.25
 }));
 
+====================================================================================================================
+https://github.com/AnalyticalGraphicsInc/3d-tiles/tree/master/specification/Styling
+
+tileset.style = new Cesium.Cesium3DTileStyle({
+   color : {
+       conditions : [
+           ['${Height} >= 100', 'color("purple", 0.5)'],
+           ['${Height} >= 50', 'color("red")'],
+           ['true', 'color("blue")']
+       ]
+   },
+   show : '${Height} > 0',
+   meta : {
+       description : '"Building id ${id} has height ${Height}."'
+   }
+});
+
+
