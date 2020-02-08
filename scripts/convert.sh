@@ -25,17 +25,17 @@ if [ "$TILES_C" == "0" ]; then
     filename=$(basename "$OSM_DUMP")
     extension="${filename##*.}"
     if [ "$extension" == "bz2" ]; then
-        bzcat ${OSM_DUMP} | java -Djava.io.tmpdir=/opt/tmp -jar ${GAZETTEER_JAR} split
+        bzcat ${OSM_DUMP} | java -Xmx4G -Djava.io.tmpdir=/opt/tmp -jar ${GAZETTEER_JAR} split
     elif [ "$extension" == "osm" ]; then
-        java -Djava.io.tmpdir=/opt/tmp -jar ${GAZETTEER_JAR} split ${OSM_DUMP}
+        java -Xmx4G -Djava.io.tmpdir=/opt/tmp -jar ${GAZETTEER_JAR} split ${OSM_DUMP}
     elif [ "$extension" == "pbf" ]; then
-        osmconvert ${OSM_DUMP} | java -Djava.io.tmpdir=/opt/tmp -jar ${GAZETTEER_JAR} split
+        osmconvert ${OSM_DUMP} | java -Xmx4G -Djava.io.tmpdir=/opt/tmp -jar ${GAZETTEER_JAR} split
     else 
         echo "Unrecognized osm dump file extension $extension"
     fi
 	
 	
-    java -Djava.io.tmpdir=/opt/tmp -jar ${GAZETTEER_JAR} tile-buildings --out-dir ${OSM_TILES}
+    java -Xmx4G -Djava.io.tmpdir=/opt/tmp -jar ${GAZETTEER_JAR} tile-buildings --out-dir ${OSM_TILES}
 	
 fi
 
