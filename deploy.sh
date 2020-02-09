@@ -17,15 +17,15 @@ docker run --name osmtiles --hostname=osmtiles \
 
 # https://github.com/kiselev-dv/osm-cesium-3d-tiles
 
-# java -jar /opt/gazetteer/gazetteer.jar --data-dir /opt/data split /opt/data/map.osm
+# java java -Xmx4G -jar /opt/gazetteer/gazetteer.jar --threads 2 --data-dir /opt/data split /opt/data/map.osm
 
 # OU
 
 # osmconvert /opt/data/sudeste-latest.osm.pbf -o=/opt/data/map2.osm
-# java -jar /opt/gazetteer/gazetteer.jar --data-dir /opt/data split /opt/data/map2.osm
+# java java -Xmx4G -jar /opt/gazetteer/gazetteer.jar --threads 2 --data-dir /opt/data split /opt/data/map2.osm
 
 # usage: gazetter tile-buildings [-h] [--drop [DROP [DROP ...]]] [--disk-index] [--out-dir OUT_DIR] [--level LEVEL]
-# java -jar /opt/gazetteer/gazetteer.jar tile-buildings --data-dir /opt/data --out-dir /opt/data/osm-tiles --level 12
+# java java -Xmx4G -jar /opt/gazetteer/gazetteer.jar tile-buildings --threads 2 --out-dir /opt/data/osm-tiles --level 12
 
 
 # python /opt/scripts/convert_parallel.py /opt/data/osm-tiles
@@ -36,3 +36,5 @@ docker run --name osmtiles --hostname=osmtiles \
 # cd /opt/OSM2World
 # ./osm2world.sh -i /opt/data/osm-tiles/12/1553/2314.osm -o /opt/data/obj-tiles/dummy.obj
 
+#  find . -size 0 -print | wc -l
+#  du -shc osm-tiles/*

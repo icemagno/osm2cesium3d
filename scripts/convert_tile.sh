@@ -37,9 +37,9 @@ for tms in $(python ${DIR}/tms_from_tileset.py ${TILESET}); do
     fi
 done
 
+# osm-tiles/12/1563/2301.osm
+# cat /opt/scripts/prop.properties | grep --invert-match 'cesiumTileset.*=' > /opt/data/obj-tiles/12_1563_2301.properties 
+# echo "cesiumTileset = /opt/data/obj-tiles/12_1563_2301_tileset.json" >> /opt/data/obj-tiles/12_1563_2301.properties
 
-
-
-
-# /opt/OSM2World/osm2world.sh -i /opt/data/osm-tiles/12/1559/2316.osm -o /opt/data/obj-tiles/12_1559_2316.obj --config /opt/data/obj-tiles/12_1559_2316.properties
-# node /opt/obj2gltf/bin/obj2gltf.js --binary --optimizeCesium -i /opt/data/obj-tiles/12_1559_2316.obj -o /opt/data/obj-tiles/12_1559_2316.glb
+# /opt/OSM2World/osm2world.sh -i /opt/data/osm-tiles/12/1563/2301.osm -o /opt/data/obj-tiles/12_1563_2301.obj --config /opt/data/obj-tiles/12_1563_2301.properties
+# node /opt/obj2gltf/bin/obj2gltf.js --binary --optimizeCesium -i /opt/data/obj-tiles/12_1563_2301.obj -o /opt/data/obj-tiles/12_1563_2301.glb
