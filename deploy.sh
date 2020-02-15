@@ -17,15 +17,15 @@ docker run --name osmtiles --hostname=osmtiles \
 
 # https://github.com/kiselev-dv/osm-cesium-3d-tiles
 
-# java java -Xmx4G -jar /opt/gazetteer/gazetteer.jar --threads 2 --data-dir /opt/data split /opt/data/map.osm
+# java -Xmx1G -jar /opt/gazetteer/gazetteer.jar --threads 4 --data-dir /opt/data split /opt/data/map.osm
 
 # OU
 
 # osmconvert /opt/data/sudeste-latest.osm.pbf -o=/opt/data/map2.osm
-# java java -Xmx4G -jar /opt/gazetteer/gazetteer.jar --threads 2 --data-dir /opt/data split /opt/data/map2.osm
+# java -Xmx4G -jar /opt/gazetteer/gazetteer.jar --threads 2 --data-dir /opt/data split /opt/data/map2.osm
 
 # usage: gazetter tile-buildings [-h] [--drop [DROP [DROP ...]]] [--disk-index] [--out-dir OUT_DIR] [--level LEVEL]
-# java java -Xmx4G -jar /opt/gazetteer/gazetteer.jar tile-buildings --threads 2 --out-dir /opt/data/osm-tiles --level 12
+# java -Xmx1024m -XX:+UseParallelGC -jar /opt/gazetteer/gazetteer.jar --threads 2 tile-buildings --out-dir /opt/data/osm-tiles --level 14java -Xmx300m -XX:+UseParallelGC -jar /opt/gazetteer/gazetteer.jar --threads 4 tile-buildings --out-dir /opt/data/osm-tiles --level 14
 
 
 # python /opt/scripts/convert_parallel.py /opt/data/osm-tiles

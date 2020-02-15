@@ -39,7 +39,7 @@ def main(rootdir):
                 tiles.append(os.path.join(dirpath, x))
 
     counter.value = len(tiles)
-    tiles_pool = Pool(processes=4)
+    tiles_pool = Pool(processes=8)
 
     print "Start pool for {} osm tiles".format(counter.value)
 
