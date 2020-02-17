@@ -1,6 +1,9 @@
 https://groups.google.com/forum/#!topic/cesium-dev/xLkYIuku9hA
 
 
+find /srv/calisto/tilesets/ -name '*.json' -exec sed -i 's/NaN/0/g' {} +
+
+
 I've updated my docker setup here https://github.com/kiselev-dv/osm-cesium-3d-tiles
 
 1. build and run that docker, map some folder on the host to /opt/data
@@ -108,22 +111,4 @@ var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({
      dynamicScreenSpaceErrorFactor : 4.0,
      dynamicScreenSpaceErrorHeightFalloff : 0.25
 }));
-
-====================================================================================================================
-https://github.com/AnalyticalGraphicsInc/3d-tiles/tree/master/specification/Styling
-
-tileset.style = new Cesium.Cesium3DTileStyle({
-   color : {
-       conditions : [
-           ['${Height} >= 100', 'color("purple", 0.5)'],
-           ['${Height} >= 50', 'color("red")'],
-           ['true', 'color("blue")']
-       ]
-   },
-   show : '${Height} > 0',
-   meta : {
-       description : '"Building id ${id} has height ${Height}."'
-   }
-});
-
 
